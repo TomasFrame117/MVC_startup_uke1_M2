@@ -13,17 +13,19 @@
     <script src="view.js"></script>
     <!-- <script src="controller.js"></script> -->
     <script>
-    let html = '';
-    let appDiv = document.getElementById('app');
-    show();
     
     updateView();
-        function updateView() {
-            if (model.app.currentPage === 'loginPage') updateViewLogin();
-            else if (model.app.currentPage === 'disclaimerPage') updateViewDisclaimer();
-            else if (model.app.currentPage === 'adminPage') updateViewAdminPage();
-            
-        }
+    function updateView() {
+    const side = model.app.currentPage;
+    if (side == 'loginPage') show();
+    if (side == 'adminPage') adminPage();
+    if (side == 'disclaimer') viewDisclaimer();
+    if (side == 'survey1') viewSurvey1();
+    if (side == 'thankYouPage') viewThankYou();   
+    } 
+
+    
+  
     </script>
   
 </body>

@@ -6,10 +6,11 @@ For hver side:
 
 - Alle input felter på siden trenger et eget felt i modellen.
 */
+let html = "";
 const model = {
     //app
     app: {
-        currentPage: '',
+        currentPage: 'loginPage',
         currentUser: null,
     },
 

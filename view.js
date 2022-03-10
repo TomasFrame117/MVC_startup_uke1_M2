@@ -1,29 +1,31 @@
-show();
 function show(){
-    
-    html =
+  
+    document.getElementById('app').innerHTML =
     /*html*/
     `<div></div>
     <h1>Company Survey</h1><br/>
+
     <h4>User Log In</h4>
     <input class="log" type="text" label="username"/> <br/>
     <h4>Password</h4>
     <input class="log" type="text"/><br/><hr/>
-    <button class="in" onclick="model.app.currentPage='updateViewDisclaimer'; updateView()">Log In</button><hr/>
+    <button class="in" onclick="changePage()">Log In</button><hr/>
+
+    
     <h4>Log in to admin</h4>
     <input class="log2" type="text"/><br/>
     <h4>Password</h4>
     <input class="log2" type="text"/><br/><hr/>
-    <button class="in2" onclick="adminPage(side)">Log In</button>                  
+
+    <button class="in2" onclick="switchAdminPage()">Log In</button>                  
     </div>
     `;
-    
-    appDiv.innerHTML = html;
     
     }
 
 function adminPage() {
-    html += `
+    document.getElementById('app').innerHTML = `
+    <h3>Admin Page</h3>
     <div class="servayGrid">
         <div class="grid1">
             <div></div>
@@ -52,7 +54,27 @@ function adminPage() {
     <button onclick="showResPerc()">Show Results in Percentage</button>
     
     `;
+    updateView();
 }
+
+
+function viewDisclaimer(){
+    document.getElementById('app').innerHTML = 
+    `<p>Disclaimer: Tekst tekst, masse tekst, du svarer anonymt tekst tekst</p>
+    <button onclick="changePage3()">OK</button>`;
+}
+
+function changePage() {
+    model.app.currentPage = 'disclaimer';
+    updateView();
+}
+
+function switchAdminPage() {
+    model.app.currentPage = 'adminPage';
+    updateView();
+}
+
+
 
 function createSurvey() {
 html += `
@@ -67,9 +89,4 @@ function showResNo() {
 function showResPerc() {
 html += `
 <div>`
-}
-
-function updateViewDisclaimer(){
-    html += `<p>Disclaimer: Tekst tekst, masse tekst, du svarer anonymt tekst tekst</p>
-    <button>OK</button>`;
 }
